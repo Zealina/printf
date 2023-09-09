@@ -7,7 +7,6 @@
  */
 int _printf(const char *format, ...)
 {
-	int error;
 	va_list args;
 	unsigned int i = 0;
 	unsigned int nchars = 0;
@@ -17,30 +16,23 @@ int _printf(const char *format, ...)
 	va_start(args, format);
 	while (format[i])
 	{
-		error = 0;
 		if (format[i] == '%')
 		{
 			i++;
 			if (format[i] == 'c')
-				error = _putchar(va_arg(args, int));
+				nchars += _putchar(va_arg(args, int));
 			else if (format[i] == 's')
-				error = putstring(va_arg(args, char *));
+				nchars += putstring(va_arg(args, char *));
 			else if (format[i] == '%')
-				error = _putchar(format[i]);
+				nchars += _putchar(format[i]);
 			else
 			{
-				error += _putchar('%');
-				error += _putchar(format[i]);
+				nchars += _putchar('%');
+				nchars += _putchar(format[i]);
 			}
 		}
 		else
-			error = _putchar(format[i]);
-		if (error < 1)
-		{
-			va_end(args);
-			return (-1);
-		}
-		nchars += error;
+			nchars += _putchar(format[i]);
 		i++;
 	}
 	va_end(args);

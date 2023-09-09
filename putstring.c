@@ -7,13 +7,16 @@
  */
 int putstring(char *s)
 {
+	int error = 0;
 	unsigned int n = 0;
 
 	if (s == NULL)
 		return (n);
 	while (s[n])
 	{
-		_putchar(s[n]);
+		error =	_putchar(s[n]);
+		if (error == -1)
+			return (-1);
 		n++;
 	}
 	return (n);

@@ -9,10 +9,5 @@
  */
 int _putchar(char c)
 {
-	int wret;
-
-	wret = write(1, &c, 1);
-	if (wret < 1)
-		return (0);
-	return (1);
+	return (write(1, &c, 1));
 }

@@ -32,23 +32,15 @@ int _printf(const char *format, ...)
 				error += _putchar('%');
 				error += _putchar(format[i]);
 			}
-			if (error < 1)
-			{
-				va_end(args);
-				return (-1);
-			}
-			nchars += error;
 		}
 		else
-		{
 			error = _putchar(format[i]);
-			if (error < 1)
-			{
-				va_end(args);
-				return (-1);
-			}
-			nchars += error;
+		if (error < 1)
+		{
+			va_end(args);
+			return (-1);
 		}
+		nchars += error;
 		i++;
 	}
 	va_end(args);

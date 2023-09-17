@@ -8,7 +8,6 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int temp;
 	unsigned int i = 0;
 	unsigned int nchars = 0;
 
@@ -23,12 +22,7 @@ int _printf(const char *format, ...)
 			if (format[i] == 'c')
 				nchars += _putchar(va_arg(args, int));
 			else if (format[i] == 's')
-			{
-				temp = putstring(va_arg(args, char *));
-				if (temp == -1)
-					return (-1);
-				nchars += temp;
-			}
+				nchars += putstring(va_arg(args, char *));
 			else if (format[i] == '%')
 				nchars += _putchar(format[i]);
 			else

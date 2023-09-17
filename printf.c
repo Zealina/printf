@@ -27,6 +27,8 @@ int _printf(const char *format, ...)
 				nchars += _putchar(format[i]);
 			else
 			{
+				if (!format[i])
+					return (-1);
 				nchars += _putchar('%');
 				nchars += _putchar(format[i]);
 			}

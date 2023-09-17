@@ -7,13 +7,9 @@
  */
 int putstring(char *s)
 {
-	int nchars = 0;
-	unsigned int n = 0;
+	int n;
 
-	while (s && s[n])
-	{
-		nchars += _putchar(s[n]);
-		n++;
-	}
-	return (nchars);
+	for (n = 0; s && s[n]; n++)
+		_putchar(s[n]);
+	return (n);
 }

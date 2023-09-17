@@ -10,12 +10,10 @@ int putstring(char *s)
 	int nchars = 0;
 	unsigned int n = 0;
 
-	if (s == NULL)
-		return (n);
-	while (s[n])
+	while (s && s[n])
 	{
 		nchars += _putchar(s[n]);
 		n++;
 	}
-	return (n);
+	return (nchars);
 }

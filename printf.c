@@ -25,6 +25,8 @@ int _printf(const char *format, ...)
 				nchars += putstring(va_arg(args, char *));
 			else if (format[i] == '%')
 				nchars += _putchar(format[i]);
+			else if (format[i] == 'd' || format[i] == 'i')
+				nchars += putint(va_arg(args, int));
 			else
 			{
 				if (!format[i])

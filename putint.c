@@ -22,10 +22,7 @@ int putint(int n)
 			return (nchars);
 		}
 		else
-		{
-			nchars += _putchar('-');
-			n = (-1) * n;
-		}
+			n = -n;
 	}
 	if (n >= 10)
 		nchars += putint(n / 10);

@@ -27,6 +27,8 @@ int _printf(const char *format, ...)
 				nchars += _putchar(format[i]);
 			else if (format[i] == 'd' || format[i] == 'i')
 				nchars += putint(va_arg(args, int));
+			else if (format[i] == 'b')
+				nchars += putbin(va_arg(args, unsigned int));
 			else
 			{
 				if (!format[i])
